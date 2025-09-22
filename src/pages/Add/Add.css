@@ -1,48 +1,415 @@
 .add{
-    width:70%;
+    width: 90%;
     margin-left: max(5vw, 25px);
     margin-top: 50px;
     color: #6d6d6d;
-    font-size:16px;
+    font-size: 16px;
+    max-width: 1200px;
 }
-.add form{
-    gap:20px;
-}
-.add-img-upload img{
-    width:120px;
-}
-.add-product-name, .add-product-description{
-    width: max(40%, 280px);
-}
-.add-product-name input, .add-product-description textarea{
-    padding:10px;
-}
-.add-category-price{
-    display:flex;
-    gap:30px;
-}
-.add-category-price select, .add-category-price input{
-    max-width: 120px;
-    padding:10px;
-}
-.add-btn{
-    max-width:120px;
-    boeder:none;
-    padding:10px;
-    background-color:black;
-    color: white;
-    cursor: ponter;
 
+.add form{
+    gap: 30px;
 }
-.add-stock{
-    margin-top: 20px;
+
+/* Section Headers */
+.section-header {
+    margin: 40px 0 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #B88E2F;
 }
-.add-stock p{
-    margin-bottom: 5px;
+
+.section-header h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+/* Form Rows */
+.form-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.form-row .add-field {
+    flex: 1;
+}
+
+/* Image Upload */
+.add-img-upload img{
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px dashed #ddd;
+}
+
+/* Basic Fields */
+.add-product-name, .add-product-description, .add-field {
+    width: 100%;
+}
+
+.add-product-name input, .add-product-description textarea, .add-field input, .add-field textarea, .add-field select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.add-product-name input:focus, .add-product-description textarea:focus, .add-field input:focus, .add-field textarea:focus, .add-field select:focus {
+    outline: none;
+    border-color: #B88E2F;
+}
+
+.add-product-description textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Category and Price Row */
+.add-category-price{
+    display: flex;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.add-category, .add-price {
+    flex: 1;
+}
+
+.add-category select, .add-price input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Stock Field */
+.add-stock {
+    margin-bottom: 20px;
+}
+
+.add-stock p {
+    margin-bottom: 8px;
     font-weight: 500;
+    color: #333;
 }
-.add-stock input{
+
+.add-stock input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    width: 200px;
+}
+
+/* Field Labels */
+.add-product-name p, .add-product-description p, .add-field p, .add-category p, .add-price p {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Submit Button */
+.add-btn {
+    width: 200px;
+    padding: 15px 30px;
+    background-color: #B88E2F;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 30px;
+}
+
+.add-btn:hover {
+    background-color: #A67C00;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .add {
+        width: 95%;
+        margin-left: 10px;
+    }
+    
+    .form-row {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .add-category-price {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .section-header h2 {
+        font-size: 20px;
+    }
+    
+    .add-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .add {
+        margin-left: 5px;
+        margin-top: 20px;
+    }
+    
+    .add form {
+        gap: 20px;
+    }
+    
+    .section-header {
+        margin: 30px 0 15px 0;
+    }
+    
+    .section-header h2 {
+        font-size: 18px;
+    }
+}
+
+/* Additional Images Styling */
+.additional-images-container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.additional-image-item {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.additional-image-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.remove-image-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-image-btn:hover {
+    background: #cc0000;
+}
+
+.additional-image-upload {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #B88E2F;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.additional-image-upload:hover {
+    background: #f9f9f9;
+    border-color: #8B6914;
+}
+
+.additional-image-upload img {
+    width: 40px;
+    height: 40px;
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .additional-images-container {
+        gap: 10px;
+    }
+    
+    .additional-image-item,
+    .additional-image-upload {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/* Loading Button Styles */
+.add-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Color Management Styles */
+.colors-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.color-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
     padding: 10px;
-    border: 1px solid rgb(211, 211, 211);
-    border-radius: 5px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.color-name-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.color-picker {
+    width: 50px;
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.remove-color-btn {
+    width: 30px;
+    height: 30px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-color-btn:hover {
+    background: #ff6666;
+}
+
+.add-color-btn {
+    padding: 10px 20px;
+    background: #B88E2F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.add-color-btn:hover {
+    background: #9a7426;
+}
+
+/* Size Management Styles */
+.sizes-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.size-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f9f9f9;
+}
+
+.size-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.remove-size-btn {
+    width: 30px;
+    height: 30px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-size-btn:hover {
+    background: #ff6666;
+}
+
+.add-size-btn {
+    padding: 10px 20px;
+    background: #B88E2F;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.add-size-btn:hover {
+    background: #9a7426;
 }

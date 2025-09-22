@@ -6,19 +6,19 @@ import Add from './pages/Add/Add.jsx'
 import Orders from './pages/Orders/Orders.jsx'
 import List from './pages/List/List.jsx'
 import './index.css'
-import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import Inventory from './pages/Inventory/Inventory';
 import Sales from './pages/Sales/Sales.jsx'
+import Newsletter from './pages/Newsletter/Newsletter.jsx'
+import Contact from './pages/Contact/Contact.jsx'
+import Blog from './pages/Blog/Blog.jsx'
 
 const App = ()=> {
 
-  const url ="http://localhost:4000"
+  const url = import.meta?.env?.VITE_API_URL || "http://localhost:4000"
 
   return(
     <div>
-      <ToastContainer/>
-      <Navbar />
+      <Navbar url={url} />
       <hr />
       <div className="app-content">
         <Sidebar />
@@ -28,6 +28,9 @@ const App = ()=> {
           <Route path="/orders" element={<Orders url={url}/>} />
           <Route path="/inventory" element={<Inventory url={url}/>}/>
           <Route path="/sales" element={<Sales url={url}/>} />
+          <Route path="/newsletter" element={<Newsletter url={url}/>}/>
+          <Route path="/contact" element={<Contact url={url}/>}/>
+          <Route path="/blog" element={<Blog url={url}/>}/>
         </Routes>
       </div>
     </div>

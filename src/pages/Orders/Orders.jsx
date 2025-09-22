@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
 import { assets } from "../../assets/assets";
 import "./Orders.css";
 
@@ -13,10 +12,10 @@ const Orders = ({ url }) => {
       if (response.data.success) {
         setOrders(response.data.data.reverse());
       } else {
-        toast.error("Error fetching orders");
+        console.log("Error fetching orders");
       }
     } catch (error) {
-      toast.error("Failed to fetch orders");
+      console.log("Failed to fetch orders");
     }
   };
 
@@ -36,10 +35,10 @@ const Orders = ({ url }) => {
           )
         );
       } else {
-        toast.error("Failed to update status");
+        console.log("Failed to update status");
       }
     } catch (error) {
-      toast.error("Error updating order status");
+      console.log("Error updating order status");
     }
   };
 
@@ -55,14 +54,22 @@ const Orders = ({ url }) => {
           <div key={order._id} className="order-item">
             <img src={assets.parcel_icon} alt="" />
             <div>
-              <p className="order-item-food">
+              <div className="order-item-product">
                 {order.items.map((item, index) => (
-                  <span key={index}>
-                    {item.name} x {item.quantity}
-                    {index !== order.items.length - 1 ? ", " : ""}
-                  </span>
+                  <div key={index} className="order-item-details">
+                    <span>{item.name}</span>
+                    <span>× {item.quantity}</span>
+                    {item.selectedColor && (
+                      <span className="color-indicator" title="Color">
+                        <span className="color-swatch" style={{backgroundColor: item.selectedColor}}></span>
+                      </span>
+                    )}
+                    {item.selectedSize && (
+                      <span className="size-chip">{item.selectedSize}</span>
+                    )}
+                  </div>
                 ))}
-              </p>
+              </div>
 
               <p className="order-item-name">
                 {order.address.firstName} {order.address.lastName}
@@ -76,14 +83,18 @@ const Orders = ({ url }) => {
               </div>
               <p className="order-item-phone">{order.address.phone}</p>
             </div>
+            <p>Order Id: {order._id}</p>
             <p>Items: {order.items.length}</p>
             <p>₹{order.amount}</p>
+            <p className={`payment-method ${(order.paymentMethod || 'prepaid') === 'cash-on-delivery' ? 'cod' : 'prepaid'}`}>
+              {(order.paymentMethod || 'prepaid') === 'cash-on-delivery' ? 'Cash on Delivery' : 'Prepaid'}
+            </p>
             <select
               onChange={(event) => statusHandler(event, order._id)}
               value={order.status} // Ensure status is displayed correctly
             >
-              <option value="Food Processing">Food Processing</option>
-              <option value="Out For Delivery">Out For Delivery</option>
+              <option value="Product Processing">Product Processing</option>
+              <option value="Out For Shipping">Out For Shipping</option>
               <option value="Delivered">Delivered</option>
             </select>
           </div>

@@ -4,10 +4,37 @@
     align-items: center;
     padding: 8px 4%;
 }
-.navbar .logo{
-    width: max(10%, 80px);
+.navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: inherit;
+}
 
+.logo-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    object-position: center;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: 700;
+    color: #000000;
+    font-family: 'Poppins', sans-serif;
 }
 .navbar .profile{
     width: 40px;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+    .navbar{ padding: 8px 16px; }
+    .logo-text{ font-size: 20px; }
+    .logo-icon{ width: 28px; height: 28px; }
+}
+@media (max-width: 640px){
+    .logo-text{ display:none; }
 }

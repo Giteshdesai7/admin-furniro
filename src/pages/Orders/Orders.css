@@ -1,16 +1,21 @@
 .order-item{
     display: grid;
-    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr;
+    grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 1fr 1fr;
     align-items: start;
     gap: 30px;
-    border:1px solid #6900FE;
+    border:1px solid #B88E2F;
     padding: 20px;
     margin: 30px 0px;
     font-size: 14px;
     color: #505050;
 }
-.order-item-food, .order-item-name{
+.order-item-product, .order-item-name{
    font-weight: 600;
+}
+.order-item-product{
+    display: grid;
+    grid-auto-rows: minmax(20px, auto);
+    gap: 6px;
 }
 .order-item-name{
     margin-top: 30px;
@@ -22,10 +27,66 @@
 }
 .order-item select{
    background-color: #F5F5F5;
-    border: 1px solid #6900FE;
+    border: 1px solid #B88E2F;
     width: max(10vw, 120px);
     padding: 10px;
     outline:none;
+}
+
+.payment-method {
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.payment-method.cod {
+    background-color: #FFF3CD;
+    color: #856404;
+    border: 1px solid #FFEAA7;
+}
+
+.payment-method.prepaid {
+    background-color: #D1ECF1;
+    color: #0C5460;
+    border: 1px solid #B8DAFF;
+}
+
+/* Color swatch styles for admin panel */
+.order-item-details {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.color-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    margin-left: 8px;
+}
+
+.color-swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid #E8E8E8;
+    display: inline-block;
+}
+
+.color-label {
+    font-size: 12px;
+    color: #666666;
+    font-weight: 500;
+}
+.size-chip{
+    padding: 1px 6px;
+    border: 1px solid #E8E8E8;
+    border-radius: 10px;
+    font-size: 11px;
+    color: #555;
 }
 @media (max-width:1000px){
     .order-item{

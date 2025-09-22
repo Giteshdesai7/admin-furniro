@@ -28,6 +28,18 @@ const Sidebar = () => {
                 <img src={assets.finance} alt="" />
                 <p>Sales Dashboard</p>
             </NavLink>
+            <NavLink to='/newsletter' className="sidebar-option">
+                <img src={assets.add_icon} alt="" />
+                <p>Newsletter</p>
+            </NavLink>
+            <NavLink to='/contact' className="sidebar-option">
+                <img src={assets.add_icon} alt="" />
+                <p>Contact Customer</p>
+            </NavLink>
+            <NavLink to='/blog' className="sidebar-option">
+                <img src={assets.add_icon} alt="" />
+                <p>Blog Management</p>
+            </NavLink>
         </div>
     </div>
   )

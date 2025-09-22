@@ -2,10 +2,13 @@ import React from 'react'
 import './Navbar.css'
 import {assets} from '../../assets/assets'
 
-const Navbar = () => {
+const Navbar = ({ url }) => {
   return (
     <div className='navbar'>
-        <img className='logo' src={assets.logo} alt="" />
+        <div className="navbar-logo">
+          <img src={assets.logo} alt="Furniro Logo" className="logo-icon" />
+          <span className="logo-text">Furniro</span>
+        </div>
         <img className='profile' src={assets.profile_image} alt="" />
       
     </div>

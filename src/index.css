@@ -31,6 +31,43 @@ hr{
     gap:10px;
 }
 
+/* Global responsive utilities */
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:0 auto;
+    padding:0 20px;
+}
+
+img,video{
+    max-width:100%;
+    height:auto;
+}
+
+.grid{
+    display:grid;
+    gap:20px;
+}
+
+/* Breakpoints */
+@media (max-width:1200px){
+    .container{ max-width:1040px; padding:0 16px; }
+}
+@media (max-width:1024px){
+    html{ font-size:15px; }
+}
+@media (max-width:900px){
+    html{ font-size:14px; }
+}
+@media (max-width:768px){
+    html{ font-size:13.5px; }
+    .app-content{ flex-direction:column; }
+}
+@media (max-width:640px){
+    html{ font-size:13px; }
+    .container{ padding:0 12px; }
+}
+
 
 
 

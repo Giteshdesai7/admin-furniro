@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { toast } from "react-toastify";
 import "./Sales.css";
 
 const Sales = ({ url }) => {
@@ -18,10 +17,10 @@ const Sales = ({ url }) => {
       if (response.data.success) {
         setSalesData(response.data.data);
       } else {
-        toast.error("Error fetching sales data");
+        console.log("Error fetching sales data");
       }
     } catch (error) {
-      toast.error("Failed to fetch sales data");
+      console.log("Failed to fetch sales data");
       console.error(error);
     } finally {
       setLoading(false);

@@ -1,4 +1,4 @@
-import logo from './logo.png'
+import logo from './Meubel House_Logos-05.png'
 import add_icon from './add_icon.png'
 import order_icon from './order_icon.png'
 import profile_image from './profile_image.png'
@@ -19,4 +19,4 @@ export const assets ={
     inventory,
 }
 
-export const url = 'http://localhost:4000'
+export const url = import.meta?.env?.VITE_API_URL || 'http://localhost:4000'
